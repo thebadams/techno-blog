@@ -4,7 +4,7 @@ const { User } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const users = await User.findAll();
-    if (!users) {
+    if (!users[0]) {
       res.status(400).json({ message: 'No Users Found!' });
     }
     res.status(200).json(users);
