@@ -1,2 +1,13 @@
 <h2>Dashboard</h2>
 <p>This is the Dashboard</p>
+
+<p>{{user.userName}}</p>
+
+{{#each user.comments as |comment|}}
+<h2>{{comment.contents}}</h2>
+{{/each}}
+
+{{#each user.posts as |post|}}
+<h2>{{post.title}}</h2>
+<p>{{post.contents}}</p>
+{{/each}}
