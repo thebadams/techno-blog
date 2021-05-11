@@ -11,10 +11,14 @@
 </form>
 
 {{#each user.comments as |comment|}}
+<a href="/api/posts/{{comment.post_id}}">
 <h2>{{comment.contents}}</h2>
+</a>
 {{/each}}
 
 {{#each user.posts as |post|}}
+<a href="/api/posts/{{post.id}}">
 <h2>{{post.title}}</h2>
 <p>{{post.contents}}</p>
+</a>
 {{/each}}
