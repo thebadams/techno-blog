@@ -1,1 +1,8 @@
 <h2>Hello There, General Kenobi</h2>
+{{#each posts as |post|}}
+<h3>{{post.title}}</h3>
+<p>Published By {{post.user.userName}}</p>
+<p>Published at {{post.createdAt}}</p>
+<p>{{post.contents}}</p>
+
+{{/each}}
