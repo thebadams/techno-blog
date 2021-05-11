@@ -1,19 +1,21 @@
 const newPostForm = document.querySelector('#new-post-form');
-
-const userID = document.querySelector('user-name').dataset.user;
+const newPostTitle = document.querySelector('#post-title');
+const creatorId = document.querySelector('#user-name').dataset.user;
 
 const newPost = async (event) => {
   event.preventDefault();
   const postContentEl = document.querySelector('#new-post');
-  const postContent = postContentEl.value.trim();
+  const contents = postContentEl.value.trim();
+  const title = newPostTitle.value.trim();
 
-  if (postContent) {
+  if (contents && title) {
     const response = await fetch('/api/posts/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        postContent,
-        userID,
+        contents,
+        creatorId,
+        title,
       }),
     });
     if (response.ok) {
