@@ -4,7 +4,7 @@ const signup = async (event) => {
   event.preventDefault();
   const userNameEl = document.querySelector('#user-name');
   const passwordEl = document.querySelector('#password');
-  
+
   const userName = userNameEl.value.trim();
   const password = passwordEl.value;
 

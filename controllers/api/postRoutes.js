@@ -22,4 +22,16 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const post = await Post.findByPk(req.params.id);
+    if (!post) {
+      req.status(400).json({ message: 'No Post Found With That ID' });
+    }
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
