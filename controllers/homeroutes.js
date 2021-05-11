@@ -47,4 +47,17 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
+router.get('/post/:id', async (req, res) => {
+  const postData = await Post.findByPk(req.params.id, {
+    include: {
+      model: Comment,
+    },
+  });
+  const post = postData.get({ plain: true });
+  res.render('post', {
+    post,
+    logged_in: req.session.logged_in,
+  });
+});
+
 module.exports = router;
