@@ -1,3 +1,5 @@
+// Set Up Sequelize Configuration
+
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
@@ -17,5 +19,5 @@ if (process.env.JAWSDB_URL) {
     },
   );
 }
-
+// export sequelize
 module.exports = sequelize;

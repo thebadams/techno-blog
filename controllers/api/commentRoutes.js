@@ -1,6 +1,8 @@
+// import router middleware and Comment model
+
 const router = require('express').Router();
 const { Comment } = require('../../models');
-
+// set up post route to create a new comment.
 router.post('/', async (req, res) => {
   try {
     const comment = await Comment.create(req.body);
@@ -9,5 +11,5 @@ router.post('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
+// export the router
 module.exports = router;

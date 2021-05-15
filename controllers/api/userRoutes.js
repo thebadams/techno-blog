@@ -1,6 +1,8 @@
+// import router
 const router = require('express').Router();
+// import User model
 const { User } = require('../../models');
-
+// set up route to get all Users
 router.get('/', async (req, res) => {
   try {
     const users = await User.findAll();
@@ -12,7 +14,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
+// set up route to create a new User
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -21,7 +23,7 @@ router.post('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
+// set up route to log in a user
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -46,7 +48,7 @@ router.post('/login', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
+// set up route to logout a user
 router.post('/logout', async (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -56,5 +58,5 @@ router.post('/logout', async (req, res) => {
     res.status(404).end();
   }
 });
-
+// export the router
 module.exports = router;

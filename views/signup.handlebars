@@ -1,5 +1,31 @@
-<form method="post" id="sign-up-form">
+{{!-- <form method="post" id="sign-up-form">
   <input type="text" name="user-name" id="user-name">
   <input type="password" name="password" id="password">
   <button type="submit">Sign Up</button>
+</form> --}}
+
+<form method="post" id= "sign-up-form">
+  <div class="row mb-3">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="user-name" class="col-sm-2 col-form-label">User Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="user-name">
+    </div>
+
+  </div>
+  <div class="row mb-3">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>
+
+<script src="/js/signup.js"></script>

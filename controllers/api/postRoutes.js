@@ -1,6 +1,8 @@
+// import the router
 const router = require('express').Router();
+// import post and comment
 const { Post, Comment } = require('../../models');
-
+// set up route to get all Posts
 router.get('/', async (req, res) => {
   try {
     const posts = await Post.findAll();
@@ -12,7 +14,7 @@ router.get('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
+// set up route to create a new post
 router.post('/', async (req, res) => {
   try {
     const post = await Post.create(req.body);
@@ -21,7 +23,7 @@ router.post('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
+// set up a route to get a specific post
 router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, {

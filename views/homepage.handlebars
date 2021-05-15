@@ -1,9 +1,18 @@
-<h2>Hello There, General Kenobi</h2>
+
+
+<h2>Blog Posts</h2>
 {{#each posts as |post|}}
-<a href="/api/posts/{{post.id}}">
-<h3>{{post.title}}</h3>
-<p>Published By {{post.user.userName}}</p>
-<p>Published at {{post.createdAt}}</p>
-<p>{{post.contents}}</p>
-</a>
+<div class="card">
+  <div class="card-header">
+    {{post.title}}
+  </div>
+  <div class="card-title">
+    Published By {{post.user.userName}}
+    Published at {{post.createdAt}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{post.contents}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 {{/each}}

@@ -1,7 +1,10 @@
+// import the router
 const router = require('express').Router();
+// import the auth middleware
 const auth = require('../utils/auth');
+// import Post, User, Comment models
 const { Post, User, Comment } = require('../models');
-
+// set up route to get all Post and render the homepage
 router.get('/', async (req, res) => {
   const postsData = await Post.findAll({
     include: [
@@ -17,15 +20,15 @@ router.get('/', async (req, res) => {
     logged_in: req.session.logged_in,
   });
 });
-
+// set up route to render the login page
 router.get('/login', async (req, res) => {
   res.render('login');
 });
-
+// set up route to render the signup page
 router.get('/signup', async (req, res) => {
   res.render('signup');
 });
-
+// set up route to render the dashboard
 router.get('/dashboard', async (req, res) => {
   if (req.session.logged_in) {
     const userData = await User.findByPk(req.session.userId, {
@@ -46,7 +49,7 @@ router.get('/dashboard', async (req, res) => {
     res.replace('/login');
   }
 });
-
+// set up route to render a specific post page
 router.get('/post/:id', async (req, res) => {
   const postData = await Post.findByPk(req.params.id, {
     include: {
@@ -59,5 +62,5 @@ router.get('/post/:id', async (req, res) => {
     logged_in: req.session.logged_in,
   });
 });
-
+// export the router
 module.exports = router;
