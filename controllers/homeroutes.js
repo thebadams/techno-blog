@@ -29,7 +29,7 @@ router.get('/signup', async (req, res) => {
   res.render('signup');
 });
 // set up route to render the dashboard
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', auth, async (req, res) => {
   if (req.session.logged_in) {
     const userData = await User.findByPk(req.session.userId, {
       include: [{
@@ -50,7 +50,7 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 // set up route to render a specific post page
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', auth, async (req, res) => {
   const postData = await Post.findByPk(req.params.id, {
     include: {
       model: Comment,
