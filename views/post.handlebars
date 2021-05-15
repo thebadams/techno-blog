@@ -1,5 +1,33 @@
-<h2>{{post.title}}</h2>
+{{!-- <h2>{{post.title}}</h2>
 <p>{{post.contents}}</p>
 {{#each post.comments as |comment|}}
 <p>{{comment.contents}}</p>
+{{/each}} --}}
+
+{{!-- {{#each posts as |post|}} --}}
+<div class="card">
+  <div class="card-header">
+    {{post.title}}
+  </div>
+  <div class="card-title">
+    Published By {{post.user.userName}}
+    Published at {{post.createdAt}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{post.contents}}</p>
+  </div>
+</div>
+{{#each post.comments as |comment|}}
+<div class="card">
+  <div class="card-title">
+    Published By {{comment.user.userName}}
+    Published by {{comment.createdAt}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      {{comment.contents}}
+    </p>
+  </div>
+</div>
 {{/each}}
+{{!-- {{/each}} --}}
